@@ -1,5 +1,7 @@
 body{
     margin: 300px 0;
     background-color: gray;
-    
+}
+.navbar {
+  margin: 0 auto;
 }
