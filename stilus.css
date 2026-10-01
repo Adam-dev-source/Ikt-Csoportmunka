@@ -16,10 +16,10 @@
 
 .kartya {
   background-color: #1a1a1a;
-  width: 350px;
-  height: 600px;
-  float: left;
-  margin-left: 60px;
+  
+  
+  
+ margin-left: 50px;
   margin-bottom: 50px;
 
 }
@@ -36,4 +36,11 @@
 
 p{
   margin-top: 20px;
+}
+.balkartya {
+  background-color: #1a1a1a;
+  width: 350px;
+  height: 600px;
+  margin-bottom: 50px;
+
 }
