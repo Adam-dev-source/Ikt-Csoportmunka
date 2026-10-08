@@ -43,9 +43,17 @@ p {
   margin-bottom: 50px;
   border-left: 5px solid blue;
   border-right: 5px solid blue;
+  height: fit-content;
+  width: fit-content;
 
 }
 
-.nagybetu{
-font-size: large;
+.nagybetu {
+  font-size: large;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  font-size: large;
 }
