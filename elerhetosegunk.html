@@ -77,12 +77,17 @@
         <div id="email" align="center">
           <p>További Kérdése van? Keressen meg minket a kristalypc44@gmail.com E-mail címen!</p><br>
           <p>Hallani akar legfrissebb ajánlatainkról/eseményeinkről? Írja be ide E-mail címét:
-            <input type="text">
-            <div class="flex items-center justify-center h-screen w-screen"> 
+            <input type="email" id="hirlevel-email" placeholder="E-mail cím">
+            <button type="button" class="btn btn-primary btn-sm" id="kuldes-gomb">Küldés</button>
           </p>
         </div>
       </footer>
 
+  <script>
+    document.getElementById("kuldes-gomb").onclick = function () {
+      alert("Sikeresen feliratkozott hírlapunkra");
+    };
+  </script>
 </body>
 
 </html>

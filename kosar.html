@@ -51,6 +51,13 @@
       </div>
     </div>
   </nav>
+
+  <div class="container">
+    <h1 style="text-align: center;">Kosár</h1>
+    <div id="kosar-lista" class="row"></div>
+    <div id="kosar-osszesito" class="text-center mt-4"></div>
+  </div>
+
     <footer>
         <div align="center">
           Készítette: <br>Szentes Olivér, Krausz Ádám
@@ -59,5 +66,52 @@
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const kosar = JSON.parse(localStorage.getItem("kristalykosar")) || [];
+
+    function mentes() {
+      localStorage.setItem("kristalykosar", JSON.stringify(kosar));
+      megjelenit();
+    }
+
+    function valtoztat(i, d) {
+      kosar[i].db += d;
+      if (kosar[i].db < 1) kosar.splice(i, 1);
+      mentes();
+    }
+
+    function torol(i) {
+      kosar.splice(i, 1);
+      mentes();
+    }
+
+    function megjelenit() {
+      const lista = document.getElementById("kosar-lista");
+      const osszesito = document.getElementById("kosar-osszesito");
+      lista.innerHTML = "";
+      osszesito.innerHTML = "";
+      if (kosar.length === 0) {
+        lista.innerHTML = '<p class="text-center">A kosara üres.</p>';
+        return;
+      }
+      let osszeg = 0;
+      kosar.forEach(function (t, i) {
+        osszeg += t.ar * t.db;
+        lista.innerHTML +=
+          '<div align="center" class="kartya col"><div class="kartya-item">' +
+          '<img src="' + t.kep + '" alt="' + t.nev + '" style="height: 300px; width: 300px;">' +
+          '<h2>' + t.nev + '</h2>' +
+          '<p>Ár: ' + t.ar + ' Ft</p>' +
+          '<p><button onclick="valtoztat(' + i + ', -1)">−</button> ' + t.db +
+          ' <button onclick="valtoztat(' + i + ', 1)">+</button></p>' +
+          '<button onclick="torol(' + i + ')">Törlés</button>' +
+          '</div></div>';
+      });
+      osszesito.innerHTML = '<h3>Végösszeg: ' + osszeg + ' Ft</h3>';
+    }
+
+    megjelenit();
+  </script>
 </body>
 </html>
